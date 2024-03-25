@@ -12,6 +12,8 @@ task runServer(type: JavaExec) {
 
   if (project.hasProperty('port')) {
     args(project.getProperty('port'));
+  } else {
+    args(9099);
   }
 }
 
@@ -27,5 +29,7 @@ task runClient(type: JavaExec) {
   // run with arguments where pHost is the localhost -- when you run client and server on the same system e.g.: gradle runClient -Phost=localhost  -Pport=9099
   if (project.hasProperty("host") && project.hasProperty('port')) {
     args(project.getProperty('host'), project.getProperty('port'));
+  } else {
+    args("localhost", 9099);
   }
 }
