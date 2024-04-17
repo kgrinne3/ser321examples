@@ -33,7 +33,9 @@ public static void main (String args[]) {
                 byte clientInput[] = new byte[bufLen]; // up to 1024 bytes in a message.
                 while(true) {
                         System.out.println("Server waiting for a connection");
-                        clientSock = sock.accept(); // blocking wait
+
+                        clientSock = sock.accept();             // blocking wait
+
                         PrintWriter out = new PrintWriter(clientSock.getOutputStream(), true);
                         InputStream input = clientSock.getInputStream();
                         System.out.println("Server connected to client");
@@ -43,11 +45,15 @@ public static void main (String args[]) {
                         System.out.println("\tLocal Address: " + clientSock.getLocalAddress());
                         System.out.println("\tLocal Port: " + clientSock.getLocalPort());
                         System.out.println("\tAllocated Client Socket (Port): " + clientSock.getPort());
+
                         int numr = input.read(clientInput, 0, bufLen);
+
                         while (numr != -1) {
+
                           String received = new String(clientInput, 0, numr);
                           System.out.println("read from client: " + received);
                           out.println(received);
+
                           numr = input.read(clientInput, 0, bufLen);
                         }
                         input.close();

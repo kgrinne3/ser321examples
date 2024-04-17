@@ -89,12 +89,16 @@ public class ThreadedSockServer extends Thread {
       if (portNo <= 1024)
         portNo = 8888;
       ServerSocket serv = new ServerSocket(portNo);
+
       while (true) {
-        System.out.println("Threaded server waiting for connects on port " + portNo);
+        System.out.println
+            ("Threaded server waiting for connects on port " + portNo);
         sock = serv.accept();
-        System.out.println("Threaded server connected to client-" + id);
+        System.out.println
+            ("Threaded server connected to client-" + id);
         // create thread
-        ThreadedSockServer myServerThread = new ThreadedSockServer(sock, id++);
+        ThreadedSockServer myServerThread =
+            new ThreadedSockServer(sock, id++);
         // run thread and don't care about managing it
         myServerThread.start();
       }

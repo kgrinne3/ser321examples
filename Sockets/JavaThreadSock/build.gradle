@@ -13,6 +13,8 @@ task ThreadedSockServer(type: JavaExec) {
   // run with arguments e.g.: gradle ThreadedSockServer -Pport=9999
   if (project.hasProperty("port")) {
          args(project.getProperty('port'));
+  } else {
+    args(8888);
   }
 }
 
@@ -28,6 +30,8 @@ task ThreadedSockClient(type: JavaExec) {
   // run with arguments e.g.: gradle ThreadedSockClient -Phost=host -Pport=9999 -q --console=plain
   if (project.hasProperty("host") && project.hasProperty("port")) {
          args(project.getProperty('host'), project.getProperty('port'));
+  } else {
+    args('localhost', 8888);
   }
 }
 
