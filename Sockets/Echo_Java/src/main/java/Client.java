@@ -23,10 +23,12 @@ public static void main (String args[]) {
                 String host = args[0];
                 Socket server = new Socket(host, port);
                 System.out.println("Connected to server at " + host + ":" + port);
-                System.out.println("Values of the Socket Object for the Server:");
-                System.out.println("\tHost: " + server.getLocalAddress());
-                System.out.println("\tPort: " + server.getPort());
-                System.out.println("\tLocal Port: " + server.getLocalPort());
+//----BEGIN ADDITIONS----//
+/*addition*/    System.out.println("Values of the Socket Object for the Server:");
+/*addition*/    System.out.println("\tHost: " + server.getLocalAddress());
+/*addition*/    System.out.println("\tPort: " + server.getPort());
+/*addition*/    System.out.println("\tLocal Port: " + server.getLocalPort());
+//----EDN ADDITIONS----//
 
 
                 InputStream input = server.getInputStream();

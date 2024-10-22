@@ -23,11 +23,13 @@ public static void main (String args[]) {
                 Socket clientSock;
                 ServerSocket sock = new ServerSocket(port);
                 System.out.println("Server ready for connections");
-                System.out.println("Server is listening on port: " + port);
-                System.out.println("-----");
-                System.out.println("Values of the ServerSocket Object:");
-                System.out.println("Inet Address: " + sock.getInetAddress());
-                System.out.println("Local Port: " + sock.getLocalPort());
+//----BEGIN ADDITIONS----//
+/*addition*/    System.out.println("Server is listening on port: " + port);
+/*addition*/    System.out.println("-----");
+/*addition*/    System.out.println("Values of the ServerSocket Object:");
+/*addition*/    System.out.println("Inet Address: " + sock.getInetAddress());
+/*addition*/    System.out.println("Local Port: " + sock.getLocalPort());
+//----END ADDITIONS----//
 
                 int bufLen = 1024;
                 byte clientInput[] = new byte[bufLen]; // up to 1024 bytes in a message.
@@ -39,12 +41,14 @@ public static void main (String args[]) {
                         PrintWriter out = new PrintWriter(clientSock.getOutputStream(), true);
                         InputStream input = clientSock.getInputStream();
                         System.out.println("Server connected to client");
-                        System.out.println("-----");
-                        System.out.println("Values of the Client Socket Object after Connection:");
-                        System.out.println("\tInet Address: " + clientSock.getInetAddress());
-                        System.out.println("\tLocal Address: " + clientSock.getLocalAddress());
-                        System.out.println("\tLocal Port: " + clientSock.getLocalPort());
-                        System.out.println("\tAllocated Client Socket (Port): " + clientSock.getPort());
+        //----BEGIN ADDITIONS----//
+        /*addition*/    System.out.println("-----");
+        /*addition*/    System.out.println("Values of the Client Socket Object after Connection:");
+        /*addition*/    System.out.println("\tInet Address: " + clientSock.getInetAddress());
+        /*addition*/    System.out.println("\tLocal Address: " + clientSock.getLocalAddress());
+        /*addition*/    System.out.println("\tLocal Port: " + clientSock.getLocalPort());
+        /*addition*/    System.out.println("\tAllocated Client Socket (Port): " + clientSock.getPort());
+        //----END ADDITIONS----//
 
                         int numr = input.read(clientInput, 0, bufLen);
 
